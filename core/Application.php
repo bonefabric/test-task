@@ -3,8 +3,20 @@ declare(strict_types=1);
 
 namespace Core;
 
+use Core\Components\Router;
+
 class Application
 {
+
+    /**
+     * @var Router
+     */
+    private Router $router;
+
+    public function __construct()
+    {
+        $this->router = new Router();
+    }
 
     /**
      * Инициализация

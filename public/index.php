@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-require_once '../vendor/autoload.php';
+define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 
 use Core\Application;
+
+require_once ROOT_PATH . 'vendor/autoload.php';
 
 $app = new Application();
 
