@@ -14,5 +14,7 @@
             "email": "iburanguloff@ya.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "8.*"
+    }
 }
