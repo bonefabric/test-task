@@ -9,6 +9,10 @@ require_once ROOT_PATH . 'vendor/autoload.php';
 
 $app = new Application();
 
-$app->boot()
-    ->start()
-    ->finish();
+try {
+    $app->boot()
+        ->start()
+        ->finish();
+} catch (Exception $e) {
+    echo 'error 500';
+}
