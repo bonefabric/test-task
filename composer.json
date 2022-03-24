@@ -1,0 +1,17 @@
+{
+    "name": "bonefabric/test-task",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "BoneFabric",
+            "email": "iburanguloff@ya.ru"
+        }
+    ],
+    "require": {}
+}
