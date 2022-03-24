@@ -13,6 +13,21 @@ class Application
      */
     private Router $router;
 
+    /**
+     * @var string
+     */
+    private string $controllerClass;
+
+    /**
+     * @var string
+     */
+    private string $controllerMethod;
+
+    /**
+     * @var string
+     */
+    private string $response;
+
     public function __construct()
     {
         $this->router = new Router();
@@ -21,10 +36,13 @@ class Application
     /**
      * Инициализация
      * @return $this
+     * @throws \Exception
      */
     public function boot(): self
     {
-
+        $routeConfig = $this->router->match(trim($_SERVER['REQUEST_URI'], '/'), strtoupper($_SERVER['REQUEST_METHOD']));
+        $this->controllerClass = $routeConfig['controller'];
+        $this->controllerMethod = $routeConfig['method'];
         return $this;
     }
 
@@ -34,7 +52,8 @@ class Application
      */
     public function start(): self
     {
-
+        $controller = new $this->controllerClass();
+        $this->response = call_user_func([$controller, $this->controllerMethod]);
         return $this;
     }
 
@@ -44,6 +63,6 @@ class Application
      */
     public function finish(): void
     {
-
+        echo $this->response ?? '';
     }
 }
