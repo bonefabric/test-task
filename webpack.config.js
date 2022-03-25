@@ -9,6 +9,8 @@ module.exports = {
         rules: [
             {test: /\.js$/, use: 'babel-loader'},
             {test: /\.vue$/, loader: 'vue-loader'},
+            {test: /\.scss$/, use: ['vue-style-loader', 'css-loader', 'sass-loader']},
+            {test: /\.css$/i, use: ["style-loader", "css-loader", "postcss-loader"]},
         ]
     },
     plugins: [
@@ -19,6 +21,6 @@ module.exports = {
         filename: 'bundle.js',
     },
     resolve: {
-        extensions: [".vue", ".js"]
+        extensions: [".vue", ".js", ".scss"]
     }
 }
