@@ -20,7 +20,7 @@
   height: 100px;
   background-color: wheat;
   bottom: 0;
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
 
