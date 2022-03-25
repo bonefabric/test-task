@@ -19,8 +19,6 @@
   width: 100%;
   height: 100px;
   background-color: wheat;
-  bottom: 0;
-  position: fixed;
   display: flex;
   align-items: center;
 

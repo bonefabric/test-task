@@ -33,15 +33,6 @@ class Comment
     }
 
     /**
-     * @return bool
-     */
-    public function save(): bool
-    {
-        $query = DB::getInstance()->prepare('INSERT INTO comments(email, title, comment, created) VALUES (?, ?, ?, ?)');
-        return $query->execute([$this->getEmail(), $this->getTitle(), $this->getComment(), $this->getCreated()->format('Y-m-d H:i:s')]);
-    }
-
-    /**
      * @return string
      */
     public function getEmail(): string

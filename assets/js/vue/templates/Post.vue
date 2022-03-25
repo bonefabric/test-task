@@ -21,6 +21,7 @@
             <p><strong>{{ comment.title }}</strong></p>
             <p>{{ comment.comment }}</p>
           </div>
+          <hr>
         </div>
       </div>
     </div>
@@ -41,7 +42,16 @@ const comment = ref('');
 onBeforeMount(async () => {
   const result = await axios.get('api/comments/get');
   if (typeof result.data === 'object' && result.data instanceof Array) {
-    comments.value = result.data;
+    result.data.forEach(item => {
+      const created = new Date(item.created);
+      comments.value.push({
+        email: item.email,
+        title: item.title,
+        comment: item.comment,
+        dateText: created.toLocaleDateString() + ' : ' + created.toLocaleTimeString(),
+        date: created
+      });
+    })
   }
   loading.value = false;
 })
